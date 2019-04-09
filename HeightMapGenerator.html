@@ -8,7 +8,7 @@
         <script src="https://preview.babylonjs.com/babylon.js"></script>
         <script src="https://preview.babylonjs.com/materialsLibrary/babylonjs.materials.min.js"></script>
         <script src="https://preview.babylonjs.com/gui/babylon.gui.min.js"></script>
-		<script src="./hmg.js"></script>
+	<script src="./hmg.js"></script>
         <style>
             html, body {
                 overflow: hidden;
@@ -29,30 +29,28 @@
     <canvas id="renderCanvas"></canvas>
     <script>
         var canvas = document.getElementById("renderCanvas");
-		var engine = new BABYLON.Engine(canvas, true, { preserveDrawingBuffer: true, stencil: true });
-		var scene = createScene();
+	var engine = new BABYLON.Engine(canvas, true, { preserveDrawingBuffer: true, stencil: true });
+	var scene = createScene();
 		
         engine.runRenderLoop(function () {
             if (scene) {
                 scene.render();
             }
         });
-
-        // Resize
         window.addEventListener("resize", function () {
             engine.resize();
         });
 		
         function createScene() {
             var scene = new BABYLON.Scene(engine);
-			var camera = new BABYLON.ArcRotateCamera("", -Math.PI/2, 0.6, 100, BABYLON.Vector3.Zero(), scene );
-				camera.upperBetaLimit = Math.PI/2;
-				camera.attachControl(canvas, true);
-			var light = new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(0, 1, 0), scene);
-				light.intensity = 0.7;
-			var advTex = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
-			var gui = new EditorGUI(advTex, scene);
-			return scene;
+            var camera = new BABYLON.ArcRotateCamera("", -Math.PI/2, 0.6, 100, BABYLON.Vector3.Zero(), scene );
+            	camera.upperBetaLimit = Math.PI/2;
+            	camera.attachControl(canvas, true);
+            var light = new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(0, 1, 0), scene);
+            	light.intensity = 0.7;
+            var advTex = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
+            var gui = new EditorGUI(advTex, scene);
+          return scene;
         };
     </script>
 </body>
