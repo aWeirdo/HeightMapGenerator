@@ -99,10 +99,6 @@ class HWGround extends BABYLON.GroundMesh {
         let canvas = document.createElement('canvas');
             canvas.width = w;
             canvas.height = h;
-            canvas.style.position = "absolute";
-            canvas.style.right = 0;
-            canvas.style.bottom = 0;
-            canvas.style.zIndex = 9999;
 
         if (!canvas.getContext) return;
         let ctx = canvas.getContext('2d');
